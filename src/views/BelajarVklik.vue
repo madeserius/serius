@@ -70,7 +70,7 @@
         rounded-full
       "
     >
-      fadel
+      +
     </button>
     <p>nilai {{ score }}</p>
   </div>
