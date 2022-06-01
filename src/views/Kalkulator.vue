@@ -1,48 +1,27 @@
 <template>
-  <div class="container">
-    <h3>Belajar Vue.Js</h3>
-    <ol start="12" :class="{ active: isActive }">
-      <li v-for="subject in subjects" v-bind:key="subject.title">
-        {{ subject.title }}-type-{{ subject.type }}
-      </li>
-    </ol>
-    <button @click="berubah()">Active</button>
+  <div>
+    <input type="text" v-model="name" />
+    <input type="number" v-model="age" />
+    <p>Namanya {{ name }}, umur {{ age }}, {{ expression }}</p>
   </div>
 </template>
-
 
 <script>
 export default {
   data() {
     return {
-      subjects: [
-        { title: "JavaScript", type: "Native" },
-        { title: "Vue", type: "Framework" },
-        { title: "React", type: "Framework" },
-      ],
-      isActive: true,
+      name: "hilaman",
+      age: 100,
     };
   },
-  methods: {
-    berubah() {
-      this.isActive = !this.isActive;
+  computed: {
+    expression() {
+      if (this.age > 50) return "tua sekali";
+      else return "muda sekali";
     },
   },
 };
 </script>
 
-<style>
-.active {
-  color: blue;
-}
-ol,
-ul {
-  list-style-type: decimal;
-  list-style-position: inside;
-  -webkit-margin-before: 1em;
-  -webkit-margin-after: 1em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  -webkit-padding-start: 0px;
-}
+<style lang="scss" scoped>
 </style>
