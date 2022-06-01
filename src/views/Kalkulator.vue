@@ -1,28 +1,12 @@
 <template>
   <div class="container">
     <h3>Belajar Vue.Js</h3>
-    <ol start="12" v-if="statusJangan">
+    <ol start="12" :class="{ active: isActive }">
       <li v-for="subject in subjects" v-bind:key="subject.title">
         {{ subject.title }}-type-{{ subject.type }}
       </li>
     </ol>
-    <div v-else>
-      <p>ok</p>
-    </div>
-    <button
-      v-on:click="changeStatus()"
-      class="
-        bg-blue-500
-        hover:bg-blue-700
-        text-white
-        font-bold
-        py-2
-        px-4
-        rounded-full
-      "
-    >
-      Check Subject
-    </button>
+    <button @click="berubah()">Active</button>
   </div>
 </template>
 
@@ -36,18 +20,21 @@ export default {
         { title: "Vue", type: "Framework" },
         { title: "React", type: "Framework" },
       ],
-      statusJangan: false,
+      isActive: true,
     };
   },
   methods: {
-    changeStatus() {
-      this.statusJangan = !this.statusJangan;
+    berubah() {
+      this.isActive = !this.isActive;
     },
   },
 };
 </script>
 
 <style>
+.active {
+  color: blue;
+}
 ol,
 ul {
   list-style-type: decimal;
