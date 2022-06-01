@@ -75,7 +75,7 @@
     +
   </button>
   <div>
-    <p>hasil {{ hasil }}</p>
+    <p>Hasil : {{ hasil }}</p>
   </div>
 </template>
 
@@ -90,7 +90,7 @@ export default {
   },
   methods: {
     tambah() {
-      this.hasil = this.input1 + this.input2;
+      this.hasil = parseInt(parseInt(this.input1) + parseInt(this.input2));
     },
     bagi() {
       this.hasil = this.input1 / this.input2;
