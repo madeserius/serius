@@ -44,5 +44,6 @@ export const routes = [
     // which is lazy-loaded when the route is visited.
     // component: () => import('./views/Kalkulator.vue')
   },
+
   { path: '/:path(.*)', component: NotFound },
 ]
